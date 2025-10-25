@@ -30,30 +30,40 @@ router.post("/tarefas/nova", (req, res) => {
     });
 });
 
-//5 - Abre e preenche o formulario edittartarefas.handlebars com as informacoes do id
+// 5 - Abre e preenche o formulário edittarefas.handlebars com as informações do id
 router.get("/tarefas/edit/:id", (req, res) => {
-    Tarefas.findOne({ _id: req.params.id }).lean().then((tarefas) => {
-        res.render("admin/tarefas/edittartarefas", { tarefas: tarefas });
+    Tarefas.findOne({ _id: req.params.id }).lean().then((tarefa) => {
+        res.render("admin/tarefas/edittarefas", { tarefa: tarefa });
+    }).catch((err) => {
+        res.send("Houve um erro ao carregar a tarefa para edição: " + err);
     });
 });
 
-//6 - Recebe as informacoes editadas e atualiza no banco de dados.
+// 6 - Recebe as informações editadas e atualiza no banco de dados.
 router.post("/tarefas/editar_tarefas", (req, res) => {
-    Tarefas.updateOne({ _id: req.body.id }, {
+    const { id, nome, descricao } = req.body;
+
+    // Verificar se os dados foram passados corretamente
+    if (!id || !nome || !descricao) {
+        return res.send("Erro: Dados incompletos para editar a tarefa.");
+    }
+
+    // Atualiza a tarefa no banco de dados
+    Tarefas.updateOne({ _id: id }, {
         $set: {
-            nome: req.body.nome,
-            descricao: req.body.descricao
+            nome,
+            descricao
         }
     }).then(() => {
         res.redirect("/rota_tarefas/tarefas");
     }).catch((err) => {
         res.send("Houve um erro ao editar a tarefa: " + err);
     });
-}); 
+});
 
 // 7 - No form turma.handlebars, ao clicar no botao excluir, ele deleta a tarefa do banco de dados
 router.post("/tarefas/deletar_tarefas/:id", (req, res) => {
-    Tarefas.deleteMany({ _id: req.params.id }).then(() => {
+    Tarefas.deleteOne({ _id: req.params.id }).then(() => {
         res.redirect("/rota_tarefas/tarefas");
     }).catch((err) => {
         res.send("Houve um erro ao deletar a tarefa: " + err);

@@ -11,18 +11,16 @@
                     <h4><b>ID:</b>{{_id}}</h4>
                     <small><b>Nome:</b> {{nome}} </small><br>
                     <small><b>Descrição:</b> {{descricao}} </small><br>
-                    <!--Botão para editar tarefas-->
-                    <a href="/rota_tarefas/editar_tarefas/{{_id}}">
-                        <button class="btn btn-success mt-3">
-                            Editar tarefas
-                        </button>
+
+                    <!-- Botão de editar -->
+                    <a href="/rota_tarefas/tarefas/edit/{{_id}}">
+                        <button class="btn btn-success mt-3">Editar</button>
                     </a>
-                    <!--botão para deletar tarefas -->
-                    <a href="/rota_tarefas/deletar_tarefas/{{_id}}">
-                        <button class="btn btn-danger mt-3">
-                            Deletar tarefas
-                        </button>
-                    </a>
+
+                    <!-- Formulário de deletar -->
+                    <form action="/rota_tarefas/tarefas/deletar_tarefas/{{_id}}" method="POST">
+                        <button type="submit" class="btn btn-danger mt-3">Deletar</button>
+                    </form>
                 </div>
             </div>
             {{/each}}
