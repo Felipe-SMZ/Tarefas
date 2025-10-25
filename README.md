@@ -13,6 +13,8 @@ Ele permite realizar as operações básicas de **Criar**, **Ler**, **Atualizar*
 - Outras dependências (ver arquivo `package.json`)
 
 ## 📁 Estrutura do projeto  
+
+```bash
 /src
 ├── controllers/ # lógica de controle das rotas
 ├── models/ # definição de modelos de dados (MongoDB)
@@ -23,44 +25,50 @@ Ele permite realizar as operações básicas de **Criar**, **Ler**, **Atualizar*
 package.json
 README.md
 
+```
+
 ## ⚙️ Como executar localmente  
 1. Clone o repositório  
-   ```bash
-   git clone https://github.com/Felipe-SMZ/Tarefas.git
-Acesse o diretório do projeto
+```bash
+git clone https://github.com/Felipe-SMZ/Tarefas.git
+```
+2. Acesse o diretório do projeto
 
-bash
-Copiar código
+```bash
 cd Tarefas
 Instale as dependências
+```
 
-bash
-Copiar código
+3. Instale as dependências
+
+```bash
 npm install
-Crie um arquivo de ambiente (exemplo .env) com as variáveis necessárias, por exemplo:
+```
+4. Crie um arquivo de ambiente (exemplo .env) com as variáveis necessárias, por exemplo:
 
-ini
-Copiar código
+```bash
 MONGODB_URI=seu_endereço_mongo
 PORT=3000
-Inicie o servidor
+```
 
-bash
-Copiar código
+5. Inicie o servidor
+
+```bash
 npm start
-ou, se estiver usando nodemon:
+```
+   ou, se estiver usando nodemon:
 
-bash
-Copiar código
-npm run dev
-Acesse no browser ou via API:
+   ```bash
+   npm run dev
+   ```
+6. Acesse no browser ou via API:
 
-arduino
-Copiar código
+```bash
 http://localhost:3000
-(ou a rota que estiver configurada para listar tarefas).
+```
 
 🧪 Funcionalidades
+
 Criar nova tarefa
 
 Listar todas as tarefas
@@ -69,9 +77,8 @@ Atualizar uma tarefa existente (por exemplo: marcar como concluída)
 
 Deletar tarefa
 
-(Opcional) Interface simples de visualização das tarefas
-
 🎯 Possíveis melhorias
+
 Autenticação de usuário
 
 Persistência de usuário/tarefas individualizadas
@@ -85,7 +92,12 @@ Dockerização do ambiente
 Deployment (Heroku, Vercel, AWS, etc.)
 
 📋 Licença
-Este projeto está sob a MIT License ou a licença que você escolher.
+
+Este projeto está sob a MIT License.
 
 🙌 Agradecimentos
+
 Obrigado a todos que contribuíram ou ajudaram de alguma forma. Qualquer sugestão de melhoria ou correção é bem-vinda!
+
+
+
