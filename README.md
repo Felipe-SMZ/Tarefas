@@ -48,7 +48,6 @@ npm install
 
 ```bash
 MONGODB_URI=seu_endereço_mongo
-PORT=3000
 ```
 
 5. Inicie o servidor
@@ -64,7 +63,7 @@ npm start
 6. Acesse no browser ou via API:
 
 ```bash
-http://localhost:3000
+http://localhost:8081/rota_tarefas/tarefas
 ```
 
 🧪 Funcionalidades
